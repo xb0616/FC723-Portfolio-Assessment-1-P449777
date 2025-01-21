@@ -15,11 +15,30 @@ def is_coprime(a,b):    #def the function
         return 1
     else:
         return 0
+    
+def validate_input(value):   #def the function to check input
+    try:                     #try-except and ValueError to check if its type
+        num=int(value)
+        if num <= 0:         #check if it is positive
+            print("Please enter a positive integer.")
+            return 0
+        else:
+            return num
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+        return 0
 
 #main function
-
-a=int(input("Please enter the first number A"))   #input
-b=int(input("Please enter the second number B"))
+while True:
+    a=input("Please enter the first positive integer for A")    #input and check a
+    a = validate_input(a)
+    if a:
+        break
+while True:
+    b=input("Please enter the second positive integer for B")   #input and check b
+    b = validate_input(b)
+    if b:
+        break        
 
 if is_coprime(a, b):                             #output
     print("A and B are coprime")
